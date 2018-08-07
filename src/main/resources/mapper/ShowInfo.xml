@@ -1,0 +1,9 @@
+<mapper namespace="com.ls.dao.ShowInfoDao">
+    <select id="findHappinessByCity" resultType="com.ls.entity.Happiness">
+        select * from b_show_info
+    </select>
+
+    <insert id="insertHappiness" parameterType="HashMap" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO happiness(city, num) VALUES(#{city}, #{num})
+    </insert>
+</mapper>
