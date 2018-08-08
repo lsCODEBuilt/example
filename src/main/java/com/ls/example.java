@@ -8,12 +8,14 @@ import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 import java.util.*;
 
 @EnableAutoConfiguration
 @SpringBootApplication
 @ServletComponentScan
+@EnableSwagger2
 public class example {
 
     public static void main(String[] args) {
