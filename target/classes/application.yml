@@ -30,6 +30,12 @@ spring.mvc.view.prefix: /templates/
 # 给返回的页面添加后缀名
 spring.mvc.view.suffix: .html
 
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
+
 
 ## Redis数据库索引（默认为0）
 #springredis.database=0

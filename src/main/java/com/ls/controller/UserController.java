@@ -1,7 +1,10 @@
 package com.ls.controller;
 
+import com.ls.commom.dto.Result;
 import com.ls.commom.service.RedisService;
+import com.ls.commom.untils.JwtUtils;
 import com.ls.entity.ShowInfo;
+import com.ls.entity.User;
 import com.ls.service.ShowInfoService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -13,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -51,6 +55,25 @@ public class UserController {
 
         System.out.println(redisService.get("redisValue"));
     }
+
+
+    @ApiOperation(value = "")
+    @RequestMapping(value = "/objects/key/{key}",method = RequestMethod.GET)
+    @ResponseBody
+    public Result getRedisKey(@ApiParam(name = "key",value = "键")@RequestParam String key){
+        User u =  new User();
+        u.setPhone("114544555");
+        u.setUserId("1111111");
+
+
+        Map<String,Object> map = new HashMap<String, Object>();
+        map.put("phone",15258744);
+        map.put("user",u);
+        map.put("id",111111);
+        return Result.success(JwtUtils.encryptToken("user", map));
+        //return Result.success(redisService.get(key));
+    }
+
 
     @RequestMapping(value = "/html")
     public String forwardHtml(Model model){
